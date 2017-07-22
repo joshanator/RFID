@@ -1,0 +1,20 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />   
+        {% block head %}
+
+        {% endblock head %}
+    </head>
+    <body>
+        <header>
+            <h1>RFsID <span style="font-size: 20px;"> - Really Fast Information from Dogtags</span></h1>
+        </header>
+        {% block content %}
+              <p>Error!</p>
+        {% endblock content %}
+    </body>
+</html>
