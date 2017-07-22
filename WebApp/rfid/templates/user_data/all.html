@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'user_data/table.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'search.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock head %}
+
+{% block content %}   
+    <div class="card content search">
+        <input id="user" type="text" value="1"/>
+        <button onclick="loadUser()">Search</button>
+    </div>
+
+
+    
+
+
+    <script>
+        var data = {{json_data|safe}};
+
+
+        function createCard(i) {
+            var card = `<div class="card content" id="card${i}">
+                            <div class="section header">
+                                <h2 id="name">[Name]</h2>
+                                <h3>SID: <span id="sid">[SID]</span></h3>
+                                <div class="img" id="picture"></div>
+                            </div>
+                            <!-- <div class="section">
+                                <h2>Personal Info</h2>
+                                <table id="table" class="table table-hover table-mc-teal">
+                                    <tbody>
+                                        <tr>
+                                            <td data-title="Key">Name</td>
+                                            <td data-title="Value">Bob Smith</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="Key">Name</td>
+                                            <td data-title="Value">Bob Smith</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> -->
+                            <div class="section">
+                                <h2>Medical Info</h2>
+                                <table id="table" class="table table-hover table-mc-teal">
+                                    <thead></thead>
+                                        <tr>
+                                        <th>Item</th>
+                                        <th>Info</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>`
+            return card;
+        }
+
+        var i = 0;
+
+        for(card of data) {
+            $('body').append(createCard(i));
+
+            $('#card' + i + ' #name').html(card.firstName + ' ' + card.lastName);
+            $('#card' + i + ' #sid').html(card.SID);
+            $('#card' + i + ' #picture').css("background", 'url(' + card.photoLink + ')');
+
+            var ignore = ['firstName', 'lastName', 'photoLink', 'SID']
+            
+            for(row in card) {
+                if(ignore.indexOf(row) == -1) {
+                    $('#card' + i + ' #tableBody').append(`<tr>
+                                    <td data-title="Key">${row}</td>
+                                    <td data-title="Value">${card[row]}</td>
+                                </tr>`)
+                }
+            }
+
+            i++;
+        }
+        
+
+
+    </script>
+
+    <script>
+        function loadUser() {
+            window.location = '/data/' + $('#user').val();
+        }
+    </script>
+{% endblock content %}

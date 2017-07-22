@@ -1,6 +1,5 @@
 div.search {
     height:50px;
-    margin-bottom: 40px;
 }
 div.search input[type=text] {
     display:block;
@@ -11,6 +10,7 @@ div.search input[type=text] {
     font-size: 1.5rem;
     border:none;
     padding-left: 40px;
+    box-sizing: border-box;
 }
 div.search button {
     display:block;

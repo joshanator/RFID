@@ -12,3 +12,13 @@ def data(request, uuid):
     return render(request, 'user_data/index.html', {
         'json_data':json.dumps(json_data)
     })
+
+def all(request):
+    url = u'http://rfid-api.azurewebsites.net/api/soldier'
+
+    response = requests.get(url)
+    json_data = json.loads(response.content)
+
+    return render(request, 'user_data/all.html', {
+        'json_data':json.dumps(json_data)
+    })
