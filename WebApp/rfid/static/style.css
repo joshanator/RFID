@@ -58,7 +58,7 @@ div.card .section.header {
     background-color: #b2dfdb;
     position: relative;
 }
-div.card .section.header img {
+div.card .section.header div.img {
     position: absolute;
     right: 40px;
     top: 150px;
@@ -67,4 +67,5 @@ div.card .section.header img {
     width: 150px;
     border-radius: 100%;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 5px 0 rgba(0,0,0,.23);
+    background-size: 150px auto !important;
 }

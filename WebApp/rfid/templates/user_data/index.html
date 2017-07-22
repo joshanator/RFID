@@ -3,14 +3,22 @@
 
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{% static 'user_data/table.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'search.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {% endblock head %}
 
 {% block content %}   
+    <div class="card content search">
+        <input id="user" type="text" value="1"/>
+        <button onclick="loadUser()">Search</button>
+    </div>
+
+
     <div class="card content">
         <div class="section header">
             <h2 id="name">[Name]</h2>
-            <h3 id="uuid">[UUID]</h3>
-            <img id="picture" src=""/>
+            <h3>SID: <span id="sid">[SID]</span></h3>
+            <div class="img" id="picture"></div>
         </div>
         <!-- <div class="section">
             <h2>Personal Info</h2>
@@ -34,15 +42,10 @@
                     <tr>
                     <th>Item</th>
                     <th>Info</th>
-                    <th>Date Updated</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td data-title="Key">Alergies</td>
-                        <td data-title="Value">HPV, Measels</td>
-                        <td data-title="Date">7/21/2017</td>
-                    </tr>
+                <tbody id="tableBody">
+
                 </tbody>
             </table>
         </div>
@@ -51,6 +54,26 @@
 
     <script>
         var data = {{json_data|safe}};
-        console.log({{json_data|safe}});
+
+        $('#name').html(data.firstName + ' ' + data.lastName);
+        $('#sid').html(data.SID);
+        $('#picture').css("background", 'url(' + data.photoLink + ')');
+
+        var ignore = ['firstName', 'lastName', 'photoLink', 'SID']
+        
+        for(row in data) {
+            if(ignore.indexOf(row) == -1) {
+                $('#tableBody').append(`<tr>
+                                <td data-title="Key">${row}</td>
+                                <td data-title="Value">${data[row]}</td>
+                            </tr>`)
+            }
+        }
+    </script>
+
+    <script>
+        function loadUser() {
+            window.location = '/data/' + $('#user').val();
+        }
     </script>
 {% endblock content %}
