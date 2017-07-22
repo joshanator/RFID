@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextEdit android:id="@+id/SID" />
+    <TextEdit android:id="@+id/firstName"/>
+    <TextEdit android:id="@+id/lastName" />
+    <TextEdit android:id="@+id/bloodtype"/>
+    <TextEdit android:id="@+id/height" />
+    <TextEdit android:id="@+id/weight"/>
+    <TextEdit android:id="@+id/birthday" />
+    <TextEdit android:id="@+id/lastVisit"/>
+    <TextEdit android:id="@+id/rank" />
+    <TextEdit android:id="@+id/supervisor"/>
+    <TextEdit android:id="@+id/contact" />
+    <TextEdit android:id="@+id/photoLink"/>
+    <TextEdit android:id="@+id/Condition"/>
+    <TextEdit android:id="@+id/Allergy" />
+    <TextEdit android:id="@+id/Vaccination"/>
+    <TextEdit android:id="@+id/Medication" />
+    <!--android:textColor="@android:color/white"-->
+
+    <TextEdit android:id="@+id/SIDvalue" />
+    <TextEdit android:id="@+id/firstNamevalue"/>
+    <TextEdit android:id="@+id/lastNamevalue" />
+    <TextEdit android:id="@+id/bloodtypevalue"/>
+    <TextEdit android:id="@+id/heightvalue" />
+    <TextEdit android:id="@+id/weightvalue"/>
+    <TextEdit android:id="@+id/birthdayvalue" />
+    <TextEdit android:id="@+id/lastVisitvalue"/>
+    <TextEdit android:id="@+id/rankvalue" />
+    <TextEdit android:id="@+id/supervisorvalue"/>
+    <TextEdit android:id="@+id/contactvalue" />
+    <TextEdit android:id="@+id/photoLinkvalue"/>
+    <TextEdit android:id="@+id/Conditionvalue"/>
+    <TextEdit android:id="@+id/Allergyvalue" />
+    <TextEdit android:id="@+id/Vaccinationvalue"/>
+    <TextEdit android:id="@+id/Medicationvalue" />
+
+</LinearLayout>
