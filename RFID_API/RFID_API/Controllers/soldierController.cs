@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
 
 namespace RFID_API.Controllers
@@ -86,5 +87,50 @@ namespace RFID_API.Controllers
             return output;
         }
 
+
+        public byte[] Get(int SID, int bytes)
+        {
+            allergyController aCon = new allergyController();
+            conditionController cCon = new conditionController();
+            medicationController mCon = new medicationController();
+
+            List<Models.allergy> allergies = aCon.Get(SID);
+            List<Models.condition> conditions = cCon.Get(SID);
+            List<Models.medication> medications = mCon.Get(SID);
+
+            string output = "";
+            byte[] toBytes = Encoding.ASCII.GetBytes((SID.ToString() + "/").Replace(" ",""));
+            byte[] temp = toBytes;
+            foreach (Models.allergy e in allergies)
+            {
+                output = e.type + "/";
+                temp = toBytes.Concat(Encoding.ASCII.GetBytes(output.Replace(" ", ""))).ToArray();
+                if(temp.Length <= bytes)
+                {
+                    toBytes = temp;
+                }
+            }
+            foreach (Models.condition e in conditions)
+            {
+                output = e.type + "/";
+                temp = toBytes.Concat(Encoding.ASCII.GetBytes(output.Replace(" ", ""))).ToArray();
+                if (temp.Length <= bytes)
+                {
+                    toBytes = temp;
+                }
+            }
+            foreach (Models.medication e in medications)
+            {
+                output = e.type + "/";
+                temp = toBytes.Concat(Encoding.ASCII.GetBytes(output.Replace(" ", ""))).ToArray();
+                if (temp.Length <= bytes)
+                {
+                    toBytes = temp;
+                }
+            }
+
+
+            return toBytes;
+        }
     }
 }

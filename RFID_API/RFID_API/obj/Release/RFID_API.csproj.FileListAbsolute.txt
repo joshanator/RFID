@@ -25,3 +25,4 @@ C:\Users\Joshua Peterson\Documents\GitHub\RFID\RFID_API\RFID_API\bin\System.Web.
 C:\Users\Joshua Peterson\Documents\GitHub\RFID\RFID_API\RFID_API\bin\System.Web.Http.WebHost.xml
 C:\Users\Joshua Peterson\Documents\GitHub\RFID\RFID_API\RFID_API\obj\Release\RFID_API.dll
 C:\Users\Joshua Peterson\Documents\GitHub\RFID\RFID_API\RFID_API\obj\Release\RFID_API.pdb
+C:\Users\Joshua Peterson\Documents\GitHub\RFID\RFID_API\RFID_API\obj\Release\RFID_API.csprojResolveAssemblyReference.cache

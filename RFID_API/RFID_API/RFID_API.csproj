@@ -82,6 +82,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Photos\sol2.jpg" />
+    <Content Include="Photos\amy.jpg" />
+    <Content Include="Photos\sol8.jpg" />
+    <Content Include="Photos\sol7.jpg" />
+    <Content Include="Photos\brenna.jpg" />
+    <Content Include="Photos\sol6.jpg" />
+    <Content Include="Photos\sol1.jpg" />
+    <Content Include="Photos\sol3.jpg" />
+    <Content Include="Photos\sol5.jpg" />
+    <Content Include="Photos\sol4.jpg" />
+    <Content Include="Photos\sol9.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
